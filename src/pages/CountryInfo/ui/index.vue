@@ -15,9 +15,15 @@
         <div class="detail__wrapper">
           <div class="detail__text">
             <p>
-              <strong>Native Name: </strong>{{ countryInfo.name.nativeName }}
+              <strong>Official Name: </strong>{{ countryInfo.name.official }}
             </p>
-            <p><strong>Population: </strong>{{ countryInfo.population }}</p>
+            <p>
+              <strong>Area: </strong>{{ countryInfo.area.toLocaleString() }}
+            </p>
+            <p>
+              <strong>Population: </strong
+              >{{ countryInfo.population.toLocaleString() }}
+            </p>
             <p><strong>Region: </strong>{{ countryInfo.region }}</p>
             <p><strong>Sub Region: </strong>{{ countryInfo.subregion }}</p>
             <p>
@@ -30,18 +36,11 @@
             <p><strong>Currency: </strong>{{ countryInfo.currencies }}</p>
             <p class="languagesList">
               <strong>Languages: </strong
-              ><span
-                v-for="(language, index) in countryInfo.languages"
-                v-bind:key="index"
-                class="languages"
-              >
-                {{ language.name
-                }}<span v-if="index + 1 < countryInfo.languages">, </span>
-              </span>
+              ><span>{{ countryInfo.languages }}</span>
             </p>
           </div>
         </div>
-<!--        <CountryBorder></CountryBorder>-->
+        <CountryBorder :border-codes="countryInfo.borders"></CountryBorder>
       </div>
     </div>
   </div>
@@ -56,14 +55,14 @@ import axios from "axios";
 import type { Country } from "@/shared/models/country";
 
 let countryInfo = ref<Country>();
+
 const countryRoute = useRoute();
 const getCountryInfo = (name: string | string[]) => {
   return axios(`https://restcountries.com/v3.1/name/${name}`, {
     method: "GET",
   })
     .then((countryData) => {
-      countryInfo.value = countryData.data;
-      console.log('countryInfo is ', countryInfo.value);
+      countryInfo.value = countryData.data[0];
     })
     .catch((error) => {
       console.error(error);
@@ -88,6 +87,7 @@ onMounted(async () => {
   padding: 6px 23px 6px 23px;
   border-radius: 2px;
   background-color: var(--color-light);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   font-style: normal;
   font-weight: 300;
@@ -102,7 +102,7 @@ onMounted(async () => {
 
   @include for-desktop {
     &:hover {
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow-card-color-hover);
       transition-property: box-shadow;
       transition-duration: 0.3s;
     }

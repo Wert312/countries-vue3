@@ -38,11 +38,14 @@ const store = useCountriesStore();
 .grid-wrapper {
   display: grid;
   padding-top: 32px;
-  justify-content: space-between;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, 250px);
   grid-column-gap: 10px;
   grid-row-gap: 40px;
   width: 100%;
+  @include for-tablet {
+    justify-content: space-between;
+  }
 }
 
 .loader {

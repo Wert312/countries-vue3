@@ -39,7 +39,7 @@ const store = useCountriesStore();
   &__container {
     border: none;
     border-radius: 5px;
-    box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-search-color);
     width: 100%;
     max-width: 340px;
     height: 50px;

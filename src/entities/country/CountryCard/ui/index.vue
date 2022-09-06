@@ -3,7 +3,7 @@
     v-if="props.country"
     :to="{
       name: 'CountryInfoPage',
-      params: { country: props.country.name.common },
+      params: { country: props.country.name.official },
     }"
     tag="div"
     class="card"
@@ -44,7 +44,7 @@ const props = defineProps<{
   background-color: var(--color-light);
   color: var(--color-light);
   text-decoration: none;
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   cursor: pointer;
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -94,7 +94,7 @@ const props = defineProps<{
 
   @include for-desktop {
     &:hover {
-      box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow-card-color-hover);
       transition-property: box-shadow;
       transition-duration: 0.3s;
     }
@@ -116,7 +116,7 @@ const props = defineProps<{
   }
 
   &__info {
-    padding: 24px 24px 0px 24px;
+    padding: 24px 24px 0 24px;
     color: var(--app-text);
     flex: 1;
   }

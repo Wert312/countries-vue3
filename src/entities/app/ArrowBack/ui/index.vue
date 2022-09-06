@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex-wrapper">
     <svg
       width="18"
       height="18"
@@ -22,7 +22,7 @@
 </template>
 
 <style lang="scss">
-.flex {
+.flex-wrapper {
   width: 18px;
   height: 18px;
   padding-right: 10px;
