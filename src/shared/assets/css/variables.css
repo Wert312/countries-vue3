@@ -1,0 +1,12 @@
+:root {
+  --app-text: hsl(200, 15%, 8%);
+  --app-background: hsl(0, 0%, 98%);
+  --color-light: hsl(0, 0%, 100%);
+  /* box-shadow */
+}
+
+[data-theme="dark"] {
+  --app-text: #ffffff;
+  --app-background: #202c36;
+  --color-light: #2b3844;
+}
