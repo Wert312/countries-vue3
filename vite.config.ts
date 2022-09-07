@@ -12,6 +12,7 @@ const vitestConfig: VitestUserConfigInterface = {
 
 export default defineConfig({
   test: vitestConfig.test,
+  base: '/countries-vue3/',
   plugins: [vue()],
   css: {
     preprocessorOptions: {
