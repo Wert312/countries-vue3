@@ -1,6 +1,6 @@
 # Countries App
 
-## [App Live]()
+## [App Live](https://wert312.github.io/countries-vue3/)
 
 ## Stack:
 #### - [Feature-Sliced](https://feature-sliced.design) architectural methodology

@@ -3,7 +3,7 @@
     v-if="props.country"
     :to="{
       name: 'CountryInfoPage',
-      params: { country: props.country.name.official },
+      params: { country: props.country.name.common },
     }"
     tag="div"
     class="card"
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { Country } from "@/shared/models/country";
+import type { Country } from "@/shared/models/country";
 
 const props = defineProps<{
   country: Country;

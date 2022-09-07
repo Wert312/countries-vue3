@@ -11,7 +11,7 @@
         <CountryCard
           v-for="country of store.GET_FILTERED_COUNTRIES"
           :country="country"
-          :key="country.name"
+          :key="country.name.official"
         >
         </CountryCard>
       </div>

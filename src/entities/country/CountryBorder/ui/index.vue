@@ -5,7 +5,7 @@
       <span v-if="borderCountries">Border Countries:</span>
             <router-link
               v-for="country in borderCountries"
-              :key="country.name"
+              :key="country.name.official"
               :to="{
                 name: 'CountryInfoPage',
                 params: { country: country.name.official },
@@ -20,7 +20,8 @@
 
 <script setup lang="ts">
 import axios from "axios";
-import {onMounted, PropType, ref} from "vue";
+import {onMounted, ref} from "vue";
+import type { PropType } from "vue";
 import type { Country } from "@/shared/models/country";
 
 const props = defineProps({
