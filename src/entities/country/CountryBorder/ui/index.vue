@@ -8,7 +8,7 @@
         :key="country.name.official"
         :to="{
           name: 'CountryInfoPage',
-          params: { country: country.name.official },
+          params: { country: country.name.common },
         }"
         class="borderLinks"
       >
