@@ -3,24 +3,24 @@
     <div class="bordersWrapper">
       <span v-if="!borderCountries" class="noBorders">No Border Countries</span>
       <span v-if="borderCountries">Border Countries:</span>
-            <router-link
-              v-for="country in borderCountries"
-              :key="country.name.official"
-              :to="{
-                name: 'CountryInfoPage',
-                params: { country: country.name.official },
-              }"
-              class="borderLinks"
-            >
-              {{ country.name.common }}
-            </router-link>
+      <router-link
+        v-for="country in borderCountries"
+        :key="country.name.official"
+        :to="{
+          name: 'CountryInfoPage',
+          params: { country: country.name.official },
+        }"
+        class="borderLinks"
+      >
+        {{ country.name.common }}
+      </router-link>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import axios from "axios";
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 import type { PropType } from "vue";
 import type { Country } from "@/shared/models/country";
 
@@ -40,7 +40,6 @@ onMounted(() => {
       .then((response) => (borderCountries.value = response.data));
   }
 });
-
 </script>
 
 <style lang="scss">

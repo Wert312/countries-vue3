@@ -1,9 +1,17 @@
 import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+/// <reference types="vitest" />
+import { defineConfig } from 'vite'
+import type { UserConfig as VitestUserConfigInterface } from 'vitest/config';
 
-// https://vitejs.dev/config/
+const vitestConfig: VitestUserConfigInterface = {
+  test: {
+    globals: true,
+  }
+};
+
 export default defineConfig({
+  test: vitestConfig.test,
   plugins: [vue()],
   css: {
     preprocessorOptions: {
